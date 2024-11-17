@@ -1,7 +1,5 @@
 #include "game.h"
 
-unsigned char empty_tile[16] = {0};
-
 void performantdelay(UINT8 nloops) {
     for (UINT8 i = 0; i < nloops; i++) {
         wait_vbl_done();
@@ -91,7 +89,6 @@ void start_menu(int *select, game_t *game) {
 }
 
 void main() {
-    // Active l'affichage du background
     DISPLAY_ON;
     SHOW_SPRITES;
     SHOW_BKG;
@@ -109,14 +106,12 @@ void main() {
     for (uint16_t i = 0; i < 100; i++)
         wait_vbl_done();
     fade_to_white();
-    set_bkg_data(0, logo_TILE_COUNT, logo_tiles);
+    set_bkg_data(0, logo_tile_count, logo_tile_data);
     for (uint16_t i = 0; i < 33; i++)
         wait_vbl_done();
     white_to_new();
 
-    offset_x = (20 - (logo_WIDTH / 8)) / 2;
-    offset_y = (18 - (logo_HEIGHT / 8)) / 2;
-    set_bkg_tiles(offset_x, offset_y, logo_WIDTH / 8, logo_HEIGHT / 8, logo_map);
+    set_bkg_tiles(0, 0, logo_tile_map_width, logo_tile_map_height, logo_map_data);
 
     while (1) {
         if (game.state == 0 && joypad() & J_START) {

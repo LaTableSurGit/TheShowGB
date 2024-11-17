@@ -8,12 +8,11 @@
 #ifndef GAME_H_
     #define GAME_H_
     #include <gb/gb.h>
+    #include <stdio.h>
     #include "scene1.h"
     #include "logo.h"
     #include "dial.h"
     #include "eric.h"
-    #include <stdio.h>
-
 
 typedef struct game_s {
     int state;

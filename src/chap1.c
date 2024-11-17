@@ -25,11 +25,17 @@ void init_eric(void)
     set_sprite_tile(6, 12);
     set_sprite_tile(7, 13);
     set_sprite_tile(8, 14);
-    moove_sprite_eric(80, 80);
+    moove_sprite_eric(80, 24);
 }
 
 int chap1(game_t *game)
 {
-    //set_bkg_tiles(0, 75, box_diagWidth, box_diagHeight, box_diag);
+    set_bkg_tiles(0, 75, box_diagWidth, box_diagHeight, box_diag);
+    wait_vbl_done();
+    printf("Ah, il est enfin l'heure de mon emission preferee !\n");
+    waitpad(J_A);
+    
+    // mettre Sammy
+    printf("Je suis sammy\n");
     return 0;
 }
